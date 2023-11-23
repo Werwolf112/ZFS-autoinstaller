@@ -2,12 +2,6 @@
 ###########################################################################################################
 # Bash Script of this Documentation :
 # https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/Debian%20Bullseye%20Root%20on%20ZFS.html#debian-bullseye-root-on-zfs
-#
-# Copyright © 2022 - installer.sh
-# Yasin Karabulak
-# info@yasinkarabulak.com
-# https://github.com/unique1984
-#
 ###########################################################################################################
 
 # this will open step by step progress [ 1 / 0 ]
