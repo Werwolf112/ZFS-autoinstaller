@@ -33,28 +33,28 @@ export RAID_EXPL=("(1+n)"
 
 APT_SOURCES_HTTP=$(
   cat <<EOF
-deb http://deb.debian.org/debian/ bullseye main contrib non-free
-deb-src http://deb.debian.org/debian/ bullseye main contrib non-free
+deb http://deb.debian.org/debian/ bookworm contrib main non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm contrib main non-free non-free-firmware
 
-deb http://deb.debian.org/debian/ bullseye-updates main contrib non-free
-deb-src http://deb.debian.org/debian/ bullseye-updates main contrib non-free
+deb http://deb.debian.org/debian/ bookworm-updates contrib main non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm-updates contrib main non-free non-free-firmware
 
-deb http://deb.debian.org/debian-security bullseye-security main contrib
-deb-src http://deb.debian.org/debian-security bullseye-security main contrib
+deb http://deb.debian.org/debian-security/ bookworm-security contrib main non-free non-free-firmware
+deb-src http://deb.debian.org/debian-security/ bookworm-security contrib main non-free non-free-firmware
 EOF
 )
 export APT_SOURCES_HTTP
 
 APT_SOURCES_HTTPS=$(
   cat <<EOF
-deb https://deb.debian.org/debian/ bullseye main contrib non-free
-deb-src https://deb.debian.org/debian/ bullseye main contrib non-free
+deb https://deb.debian.org/debian/ bookworm contrib main non-free non-free-firmware
+deb-src https://deb.debian.org/debian/ bookworm contrib main non-free non-free-firmware
 
-deb https://deb.debian.org/debian/ bullseye-updates main contrib non-free
-deb-src https://deb.debian.org/debian/ bullseye-updates main contrib non-free
+deb https://deb.debian.org/debian/ bookworm-updates contrib main non-free non-free-firmware
+deb-src https://deb.debian.org/debian/ bookworm-updates contrib main non-free non-free-firmware
 
-deb https://deb.debian.org/debian-security bullseye-security main contrib
-deb-src https://deb.debian.org/debian-security bullseye-security main contrib
+deb https://deb.debian.org/debian-security/ bookworm-security contrib main non-free non-free-firmware
+deb-src https://deb.debian.org/debian-security/ bookworm-security contrib main non-free non-free-firmware
 EOF
 )
 export APT_SOURCES_HTTPS
@@ -139,9 +139,10 @@ function aptUpdateUpgrade() {
 
 function installBaseApps() {
   dividerLine "System ZFS Build Applications Installation"
+  #vorher ausführen
   apt -qqq update -y
-  apt -qq install -y bash-completion debootstrap dpkg-dev dkms gdisk parted mdadm ovmf
   apt -qq install -y zfsutils-linux
+  apt -qq install -y bash-completion debootstrap dpkg-dev dkms gdisk parted mdadm ovmf
   modprobe zfs
 
   stepByStep "installBaseApps"
